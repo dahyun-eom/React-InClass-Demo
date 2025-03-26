@@ -124,6 +124,21 @@ function MsgList() {
     </div>
   );
 }
+function MsgList1() {
+  const messages = [
+    { name: 'Joyce', body: 'Your next appointment is on Thursday.' },
+    { name: 'James', body: 'Please call the office ASAP.' },
+    { name: 'Julie', body: 'Your A1C is below 6.5%hofo' },
+  ];
+
+  return (
+    <div>
+      {messages.map((msg, index) => (
+        <Msg key={index} name={msg.name} body={msg.body} />
+      ))}
+    </div>
+  );
+}
 
 // Slide 16
 function formatDate(d) {
@@ -221,10 +236,12 @@ class Clock2 extends React.Component {
   }
 }
 
+//function definition using react hooks
 function Clock3(props) {
   const [date, setDate] = useState(new Date());
 
   useEffect(() => {
+    //set up the timer
     const intervalId = setInterval(() => {
       setDate(new Date());
     }, 1000);
@@ -554,7 +571,7 @@ function App() {
         <Welcome2 name="Garrus" />
         {/* Slide 15 */}
         <ExampleLabel slide="Slide 15" />
-        <MsgList />
+        <MsgList1 />
         {/* Slide 16 */}
         <ExampleLabel slide="Slide 16" />
         <Comment1
